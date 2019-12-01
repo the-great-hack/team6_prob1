@@ -36,6 +36,7 @@ router.post('/drivers', async (req, res, next) => {
 
 })
 
+//Ride Booking 
 router.post('/bookings', async(req, res, next) => {
 
     try {
@@ -98,10 +99,11 @@ router.post('/bookings', async(req, res, next) => {
 router.post('/drivers/available', (req, res, next) => {
 
 
-    var location = req.body.sourceLatLang;
+    var location = req.body.sourceLatLong;
 
 
-    //Send location to careem to update its source location
+    //Send location to careem to update its source location for 30 mins
+    //updateDriverLocation(location)
     res.status(200).json({
         response: "Driver available"
     });
@@ -112,13 +114,14 @@ router.post('/drivers/available', (req, res, next) => {
 router.post('/invitations', (req, res, next) => {
 
     var isAccepted = req.body.isAccepted;
-    
+    var userLocation = req.body.userLongLat;
+    var driverLocation = req.body.driverLongLat;
     if (isAccepted) {
         // Call API to fetch te steps from Google
 
         //Send these steps to driver and user
 
-        smsGoogleDirections();
+        smsGoogleDirections(userLocation,driverLocation);
     }
 
     //Send location to careem to update its source location
@@ -133,31 +136,11 @@ router.post('/directions', async(req, res, next) => {
     var sourceLocation = req.body.source;
     var destinationLocation = req.body.destination;
 
-    // try{
-        
-    //     var steps = fetch("https://script.google.com/macros/s/AKfycbwEydaZiKNHCQGdNSgC8rQx6EQBKLtHman1ZAVU3cu4uxTnuh-E/exec?source="+sourceLocation+"&dest="+destinationLocation)
-    //     .then(res => res.text())
-    //     .then(json => resolve(json));
-        
-    // }catch(e){
-    // console.log(e);
-    // }
-
-    
-
-  //  var directions = await fetchGoogleDirections(sourceLocation,destinationLocation);
-
-  var directions = fetch("https://script.google.com/macros/s/AKfycbwEydaZiKNHCQGdNSgC8rQx6EQBKLtHman1ZAVU3cu4uxTnuh-E/exec?source="+sourceLocation+"&dest="+destinationLocation)
+   fetch("https://script.google.com/macros/s/AKfycbwEydaZiKNHCQGdNSgC8rQx6EQBKLtHman1ZAVU3cu4uxTnuh-E/exec?source="+sourceLocation+"&dest="+destinationLocation)
   .then(resp => resp.text())
   .then(json => res.json(json.split('\n')));
 
   
-    //console.log(directions);
-    // res.status(200).json({
-    //     response: directions
-    // });
-
-
 });
 
 
@@ -193,25 +176,14 @@ async function createDriver(driverReq) {
 }
 
 
-
-
 function fetchGoogleDirections(source,destination) {
 
     return new Promise(async(resolve, reject) => {
-        //https://script.google.com/macros/s/AKfycbwEydaZiKNHCQGdNSgC8rQx6EQBKLtHman1ZAVU3cu4uxTnuh-E/exec?source="DHA phase 5, Lahore"&dest="Kalma Chowk, Lahore"
-      
-        // var steps = await fetch("https://script.google.com/macros/s/AKfycbwEydaZiKNHCQGdNSgC8rQx6EQBKLtHman1ZAVU3cu4uxTnuh-E/exec?source="+source+"&dest="+destination).catch(e=>{
-        //     console.log('Error while fetching steps');
-        //     reject(e);
-        // });
-
-
+   
         await fetch("https://script.google.com/macros/s/AKfycbwEydaZiKNHCQGdNSgC8rQx6EQBKLtHman1ZAVU3cu4uxTnuh-E/exec?source="+sourceLocation+"&dest="+destinationLocation)
         .then(res => res.text())
         .then(json => resolve(json));
         
-
-       
 
     })
 }
