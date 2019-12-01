@@ -1,0 +1,163 @@
+{
+	"id": "ada7df7a-9cd6-3d94-6a1e-db07fbe6327e",
+	"name": "RVS",
+	"description": "",
+	"order": [
+		"5cb7058a-7fe0-9ba0-a570-5cd9017bfca9",
+		"36371346-2556-b311-879e-e66649adce7a",
+		"1e0da12a-4681-48ea-cb60-9d78ec357c21",
+		"e2eabca9-70b0-53ba-34bd-0e68ea8ae810"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1575122845505,
+	"owner": "453326",
+	"public": false,
+	"requests": [
+		{
+			"id": "1e0da12a-4681-48ea-cb60-9d78ec357c21",
+			"headers": "Content-Type: application/json\nAccept: \n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/api/directions",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1575125866505,
+			"name": "Get Direction Steps",
+			"description": "",
+			"collectionId": "ada7df7a-9cd6-3d94-6a1e-db07fbe6327e",
+			"responses": [],
+			"rawModeData": "{\r\n   \"source\":\"DHA phase 5, Lahore\",\r\n   \"destination\":\"Kalma Chowk, Lahore\"\r\n}  "
+		},
+		{
+			"id": "36371346-2556-b311-879e-e66649adce7a",
+			"headers": "Content-Type: application/json\nAccept: \n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/api/drivers",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1575123736912,
+			"name": "Create Driver ",
+			"description": "",
+			"collectionId": "ada7df7a-9cd6-3d94-6a1e-db07fbe6327e",
+			"responses": [],
+			"rawModeData": "{\r\n    \"driverName\"        : \"Driver DD\",\r\n    \"driverRating\"        : \"4.5\",\r\n    \"vehicleNumber\"        : \"FZR 200\",\r\n    \"lon\":31.519576,\r\n    \"lat\":74.320434\r\n}  "
+		},
+		{
+			"id": "5cb7058a-7fe0-9ba0-a570-5cd9017bfca9",
+			"headers": "Content-Type: application/json\nAccept: \n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/api/bookings",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1575123720231,
+			"name": "Book Ride",
+			"description": "",
+			"collectionId": "ada7df7a-9cd6-3d94-6a1e-db07fbe6327e",
+			"responses": [],
+			"rawModeData": "{\r\n\t \"sourceLong\":31.519521,\r\n\t \"sourceLat\":74.320241,\r\n\t \r\n\t \"destLong\":33.5,\r\n\t \"destLat\":70.39,\r\n\t \r\n     \"userNumber\":\"+923087638398\"\r\n    \r\n}  "
+		},
+		{
+			"id": "e2eabca9-70b0-53ba-34bd-0e68ea8ae810",
+			"headers": "Content-Type: application/json\nAccept: \n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/api/invitations",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "ada7df7a-9cd6-3d94-6a1e-db07fbe6327e",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Invitation",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1575128102856,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n   \"isAccepted\":true\r\n   \r\n}  "
+		}
+	]
+}
